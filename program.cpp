@@ -1,17 +1,15 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
-
-int fib(int n) {
-	if (n == 1) return 0;
-	if (n == 2) return 1;
-	return fib(n-1) + fib(n-2);
-}
 
 
 int main(){
 	cout << "Hello, world!" << endl;
 	cout << "n = ";
 	int n; cin >> n;
-	cout << "fib(" << n << ") = " <<  fib(n) << endl;
+	vector<int> fib(n+1);
+	fib[1] = 0; fib[2] = 1;
+	for(int i = 3; i < n+1; i++) fib[i] = fib[i-1] + fib[i-2];
+	for(int i = 1; i < n+1; i++) cout << fib[i] << endl;
 }
